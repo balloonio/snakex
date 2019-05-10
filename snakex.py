@@ -35,6 +35,8 @@ class Snake:
 
         if new_head in self.body_set:
             self.is_alive = False
+            pyxel.play(0, [6,5,4,3,2,1,0], loop=False)
+            return
 
         self.body.appendleft(new_head)
         self.body_set.add(new_head)
@@ -44,10 +46,10 @@ class Snake:
         else:
             self.need_grow -= 1
 
-        if new_head[0] < 0 or new_head[0] >= SCREEN_WIDTH:
+        if new_head[0] < 0 or new_head[0] >= SCREEN_WIDTH or new_head[1] < 0 or new_head[1] >= SCREEN_HEIGHT:
             self.is_alive = False
-        if new_head[1] < 0 or new_head[1] >= SCREEN_HEIGHT:
-            self.is_alive = False
+            pyxel.play(0, [6,5,4,3,2,1,0], loop=False)
+            return
         
         self.is_grow_turn = not self.is_grow_turn
     
@@ -70,6 +72,7 @@ class Apple:
 class App:
     def __init__(self):
         pyxel.init(SCREEN_WIDTH, SCREEN_HEIGHT)
+        pyxel.load('my_resource.pyxel')
         self.snake = Snake(SCREEN_WIDTH//2,SCREEN_HEIGHT//2)
         self.apple = Apple()
         # random apple until it is not inside snake
@@ -79,6 +82,7 @@ class App:
         pyxel.run(self.update, self.draw)
     
     def restart(self):
+        pyxel.stop()  # stop death music
         self.snake = Snake(SCREEN_WIDTH//2,SCREEN_HEIGHT//2)
         self.apple = Apple()
         # random apple until it is not inside snake
@@ -109,6 +113,7 @@ class App:
         if self.snake.body_collide(*self.apple.coordinate()):
             self.snake.need_grow = self.apple.color
             self.apples_ate += 1
+            pyxel.play(0, min(self.apples_ate-1, 20), loop=False)
         
             # random apple until it is not inside snake
             while self.snake.body_collide(*self.apple.coordinate()) or self.apple.color == self.snake.color:
@@ -142,8 +147,6 @@ class App:
         
         # update snake body, move the last parts to the front
         self.snake.update_body()
-        
-
 
     def draw(self):
         pyxel.cls(0)
