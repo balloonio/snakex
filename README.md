@@ -6,7 +6,18 @@
 
 Snake X is a pyxel based arcade snake game. X stands for the functionality to move in "X" directions.
 
-# Controls
+# Build and Play
+
+```
+git clone git@github.com:balloonio/snakex.git
+cd snakex
+python3 -m venv myvenv
+source myvenv/bin/activate
+pip3 install -r requirements.txt
+./snakex.py
+```
+
+# Controls and Keys
 
 | Control         | Key                            |
 |-----------------|--------------------------------|
