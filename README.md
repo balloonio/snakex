@@ -2,7 +2,9 @@
   <img src="DEMO.gif" height="150">
 </p>
 
-Snake X is a pyxel based arcade snake game. X stands for the functionality to move in "X" directions.
+# Snake X
+
+Snake X is an arcade snake game written in Python using [pyxel](https://github.com/kitao/pyxel). X stands for the functionality to move in "X" directions.
 
 ## Build and Play
 
