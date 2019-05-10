@@ -2,11 +2,9 @@
   <img src="DEMO.gif" height="150">
 </p>
 
-# Snake X
-
 Snake X is a pyxel based arcade snake game. X stands for the functionality to move in "X" directions.
 
-# Build and Play
+## Build and Play
 
 ```
 git clone git@github.com:balloonio/snakex.git
@@ -17,7 +15,7 @@ pip3 install -r requirements.txt
 ./snakex.py
 ```
 
-# Controls and Keys
+## Controls and Keys
 
 | Control         | Key                            |
 |-----------------|--------------------------------|
@@ -31,3 +29,11 @@ pip3 install -r requirements.txt
 | Move down left  | `Z`                            |
 | Restart         | `G`                            |
 | Quit            | `ESC`                          |
+
+## Features
+
+- Snake can move along eight directions.
+- Snake grows longer and moves faster after it consumes apples; the length to grow depends on the apple color while the acceleration is the same for all apples.
+- Clicking direction keys while snake is already moving in that direction will make snake temporarily speed up.
+- The score is shown upon death as of how many apple was consumed.
+- There are sound effects for apple eating and death screen
