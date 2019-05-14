@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="DEMO.gif" height="150">
+  <img src="DEMO.gif" height="200">
 </p>
 
 # Snake X
